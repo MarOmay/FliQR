@@ -2,10 +2,18 @@ package com.fliqr.dev;
 
 import android.graphics.Bitmap;
 import android.widget.Toast;
+
+import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.camera.view.PreviewView;
+
+import com.google.common.util.concurrent.ListenableFuture;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
 public class Converter {
+
+
 
     private String content;
 
@@ -29,6 +37,17 @@ public class Converter {
 
     //From any bitmap passed as parameter
     public String toText(){
+
+    /*
+    This is for the live camera preview for RQ detection xml layout
+
+
+    */
+
+
         return "";
     }
+
+
+
 }
