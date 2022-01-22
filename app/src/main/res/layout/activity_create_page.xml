@@ -7,51 +7,42 @@
     android:background="#666666"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/blur_icon"
-        android:layout_width="759dp"
-        android:layout_height="924dp"
-        android:alpha="0.5"
-        android:clickable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="39dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="#00C1C1C1"
+        android:scaleType="centerInside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248"
-        app:srcCompat="@drawable/blur_icon" />
+        app:srcCompat="@drawable/back_button"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="60dp"
-        android:clickable="false"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fin_icon"/>
-
-    <ImageView
-        android:id="@+id/name"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        app:srcCompat="@drawable/fin_name" />
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="135dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:text="Create QR"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/create_button"
+        android:id="@+id/text_button"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="24dp"
         android:background="#E2C1C0"
-        android:foreground="@drawable/create"
+        android:clickable="true"
+        android:foreground="@drawable/text_icon"
         android:gravity="bottom|center"
         android:paddingBottom="20dp"
-        android:text="CREATE QR"
+        android:text="TEXT"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -61,20 +52,19 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        tools:ignore="TextContrastCheck"
-        android:clickable="true"/>
+        app:layout_constraintVertical_bias="0.343"
+        tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/scanqr_button"
+        android:id="@+id/docx_button"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginEnd="24dp"
         android:background="#d29381"
-        android:foreground="@drawable/scan"
+        android:foreground="@drawable/docx_icon"
         android:gravity="bottom|center"
         android:paddingBottom="20dp"
-        android:text="SCAN QR"
+        android:text="DOCX"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -84,20 +74,20 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_bias="0.343"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/importdoc_button"
+        android:id="@+id/pdf_button"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
         android:background="#d29381"
-        android:foreground="@drawable/import_docs"
+        android:foreground="@drawable/pdf_icon"
         android:gravity="bottom|center"
         android:paddingBottom="20dp"
-        android:text="IMPORT DOCS"
+        android:text="PDF"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -105,20 +95,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_button"
+        app:layout_constraintTop_toBottomOf="@+id/text_button"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/importqr_button"
+        android:id="@+id/excel_button"
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
         android:background="#E2C1C0"
-        android:foreground="@drawable/import_qr"
+        android:foreground="@drawable/xlsx_icon"
         android:gravity="bottom|center"
         android:paddingBottom="20dp"
-        android:text="IMPORT QR"
+        android:text="EXCEL"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -126,8 +116,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.894"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scanqr_button"
-        tools:ignore="TextContrastCheck"
-        android:hapticFeedbackEnabled="true"/>
+        app:layout_constraintTop_toBottomOf="@+id/docx_button"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

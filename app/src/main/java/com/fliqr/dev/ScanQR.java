@@ -34,7 +34,13 @@ public class ScanQR extends AppCompatActivity {
 
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
 
-        requestCamera();
+        try{
+            requestCamera();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     private void requestCamera(){
@@ -97,6 +103,7 @@ public class ScanQR extends AppCompatActivity {
             @Override
             public void QRCodeFound(String qrCode) {
                 //transfer read text as parameter or variable
+                Toast.makeText(null, "Ok, gumagana naman", Toast.LENGTH_SHORT).show();
                 finish();
             }
 
@@ -106,7 +113,13 @@ public class ScanQR extends AppCompatActivity {
             }
         }));
 
-        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, tempPreview);
+        try{
+            Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner) this, cameraSelector, tempPreview);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
 
     }
 
