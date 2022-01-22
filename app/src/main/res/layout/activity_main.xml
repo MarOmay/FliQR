@@ -48,8 +48,10 @@
         android:layout_height="170dp"
         android:layout_marginStart="24dp"
         android:background="#E2C1C0"
+        android:clickable="true"
         android:foreground="@drawable/create"
         android:gravity="bottom|center"
+        android:onClick="gotoCreate"
         android:paddingBottom="20dp"
         android:text="CREATE QR"
         android:textAlignment="center"
@@ -62,8 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
-        tools:ignore="TextContrastCheck"
-        android:clickable="true"/>
+        tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/scanqr_button"

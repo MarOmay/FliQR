@@ -22,22 +22,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, ScanQR.class);
         MainActivity.this.startActivity(intent);
         */
-        try{
-        Button button = (Button) findViewById(R.id.create_button);
-        Toast.makeText(MainActivity.this, "Stage 1", Toast.LENGTH_SHORT).show();
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "Ok pa", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, CreatePage.class);
-                MainActivity.this.startActivity(intent);
-            }
-        });
-    }
-        catch (Exception e){
-            Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
-        }
 
+
+    }
+
+    public void gotoCreate(View view){
+        Intent intent = new Intent(MainActivity.this, Create.class);
+        MainActivity.this.startActivity(intent);
     }
 
 
