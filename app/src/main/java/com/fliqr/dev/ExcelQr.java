@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class DocxQr extends AppCompatActivity {
+public class ExcelQr extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_docx_qr);
+        setContentView(R.layout.activity_excel_qr);
     }
 
     public void back(View view){
@@ -19,8 +19,8 @@ public class DocxQr extends AppCompatActivity {
     }
 
     public void gotoOutput(View view){
-        Intent intent = new Intent(DocxQr.this, Output.class);
-        DocxQr.this.startActivity(intent);
-        DocxQr.this.finish();
+        Intent intent = new Intent(ExcelQr.this, Output.class);
+        ExcelQr.this.startActivity(intent);
+        ExcelQr.this.finish();
     }
 }

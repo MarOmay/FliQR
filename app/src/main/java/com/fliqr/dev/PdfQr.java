@@ -6,12 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class DocxQr extends AppCompatActivity {
+public class PdfQr extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_docx_qr);
+        setContentView(R.layout.activity_pdf_qr);
     }
 
     public void back(View view){
@@ -19,8 +19,8 @@ public class DocxQr extends AppCompatActivity {
     }
 
     public void gotoOutput(View view){
-        Intent intent = new Intent(DocxQr.this, Output.class);
-        DocxQr.this.startActivity(intent);
-        DocxQr.this.finish();
+        Intent intent = new Intent(PdfQr.this, Output.class);
+        PdfQr.this.startActivity(intent);
+        PdfQr.this.finish();
     }
 }

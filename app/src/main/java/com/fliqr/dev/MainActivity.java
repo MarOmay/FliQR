@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     public void gotoCreate(View view){
         Intent intent = new Intent(MainActivity.this, Create.class);
         MainActivity.this.startActivity(intent);
-
     }
 
     public void gotoScanQR(View view){
@@ -36,8 +35,15 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(intent);
     }
 
+    public void gotoDocxQr(View view){
+        Intent intent = new Intent(MainActivity.this, DocxQr.class);
+        MainActivity.this.startActivity(intent);
+    }
 
-
+    public void gotoImportQr(View view){
+        Intent intent = new Intent(MainActivity.this, ImportQr.class);
+        MainActivity.this.startActivity(intent);
+    }
 
 
 }

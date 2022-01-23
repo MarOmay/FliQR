@@ -20,4 +20,5 @@ public class Output extends AppCompatActivity {
         Output.this.finish();
     }
 
+
 }
