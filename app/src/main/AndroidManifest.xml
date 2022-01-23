@@ -14,13 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FliQR">
         <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DocxQr"
+            android:exported="true" />
+        <activity
+            android:name=".Output"
+            android:exported="true" />
+        <activity
+            android:name=".Text"
+            android:exported="true" />
+        <activity
             android:name=".Create"
             android:exported="true" />
         <activity
             android:name=".ScanQR"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

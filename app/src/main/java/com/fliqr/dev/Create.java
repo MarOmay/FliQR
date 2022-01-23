@@ -20,4 +20,15 @@ public class Create extends AppCompatActivity {
         finish();
     }
 
+    public void gotoText(View view){
+        Intent intent = new Intent(Create.this, Text.class);
+        Create.this.startActivity(intent);
+    }
+
+    public void gotoDocx(View view){
+        Intent intent = new Intent(Create.this, DocxQr.class);
+        Create.this.startActivity(intent);
+        Create.this.finish();
+    }
+
 }

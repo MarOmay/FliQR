@@ -16,6 +16,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Size;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.common.util.concurrent.ListenableFuture;
@@ -121,6 +122,10 @@ public class ScanQR extends AppCompatActivity {
         }
 
 
+    }
+
+    public void back(View view){
+        finish();
     }
 
 
