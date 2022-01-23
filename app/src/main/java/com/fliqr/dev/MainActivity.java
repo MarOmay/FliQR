@@ -28,13 +28,12 @@ public class MainActivity extends AppCompatActivity {
     public void gotoCreate(View view){
         Intent intent = new Intent(MainActivity.this, Create.class);
         MainActivity.this.startActivity(intent);
-        MainActivity.this.finish();
+
     }
 
     public void gotoScanQR(View view){
         Intent intent = new Intent(MainActivity.this, ScanQR.class);
         MainActivity.this.startActivity(intent);
-        MainActivity.this.finish();
     }
 
 

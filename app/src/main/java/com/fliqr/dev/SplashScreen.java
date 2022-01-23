@@ -12,12 +12,14 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
         setContentView(R.layout.activity_splash_screen);
         h.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent i = new Intent(SplashScreen.this, MainActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.abc_fade_in,R.anim.abc_fade_out);
                 finish();
             }
         }, 2000);

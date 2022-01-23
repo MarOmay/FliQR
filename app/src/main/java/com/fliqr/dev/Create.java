@@ -28,7 +28,6 @@ public class Create extends AppCompatActivity {
     public void gotoDocx(View view){
         Intent intent = new Intent(Create.this, DocxQr.class);
         Create.this.startActivity(intent);
-        Create.this.finish();
     }
 
 }
