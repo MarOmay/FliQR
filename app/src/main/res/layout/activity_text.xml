@@ -47,6 +47,9 @@
 
     <EditText
         android:id="@+id/editText"
+        android:inputType="textCapSentences|textMultiLine"
+        android:scrollHorizontally="false"
+        android:maxLength ="2000"
         android:layout_width="360dp"
         android:layout_height="205dp"
         android:background="#514C4B"
@@ -56,7 +59,6 @@
         android:ems="10"
         android:fontFamily="sans-serif"
         android:gravity="top"
-        android:inputType="textPersonName"
         android:paddingStart="5dp"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
