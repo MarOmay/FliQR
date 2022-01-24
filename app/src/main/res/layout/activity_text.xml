@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/text_big" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editText"
         android:layout_width="360dp"
         android:layout_height="205dp"
         android:background="#514C4B"
@@ -91,7 +91,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintVertical_bias="0.195"
         tools:ignore="TextContrastCheck" />
 
