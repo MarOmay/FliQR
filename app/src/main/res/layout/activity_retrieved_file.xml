@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RetrievedText"
+    tools:context=".RetrievedFile"
     android:background="#8d806f">
 
     <ImageView
@@ -31,45 +31,44 @@
         app:layout_constraintTop_toBottomOf="@+id/icon"
         app:srcCompat="@drawable/fin_name" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="357dp"
-        android:layout_height="241dp"
-        android:background="#514C4B"
-        android:clickable="true"
-        android:ems="10"
-        android:fontFamily="sans-serif"
-        android:gravity="top"
-        android:inputType="textCapSentences|textMultiLine"
-        android:maxLength="2000"
-        android:paddingStart="5dp"
-        android:paddingLeft="5dp"
-        android:paddingTop="5dp"
-        android:paddingEnd="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
-        android:scrollHorizontally="false"
-        android:singleLine="false"
-        android:textColor="#FFFFFF"
-        android:textColorHint="@color/white"
-        android:textSize="20sp"
+    <ImageView
+        android:id="@+id/filetype_icon"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.353"
+        app:srcCompat="null" />
+
+    <TextView
+        android:id="@+id/file_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif"
+        android:text="File_name.xxx"
+        android:inputType="text|textMultiLine"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filetype_icon"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/copy_button"
+        android:id="@+id/save_button"
         android:layout_width="218dp"
         android:layout_height="54dp"
         android:layout_marginStart="24dp"
         android:background="#E2C1C0"
         android:clickable="true"
         android:gravity="center"
-        android:text="COPY"
+        android:text="SAVE"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -78,8 +77,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.221"
+        app:layout_constraintTop_toBottomOf="@+id/file_name"
+        app:layout_constraintVertical_bias="0.298"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -87,8 +86,6 @@
         android:layout_width="218dp"
         android:layout_height="54dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="88dp"
         android:background="#d29381"
         android:clickable="true"
         android:gravity="center"
@@ -101,8 +98,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/copy_button"
-        app:layout_constraintVertical_bias="0.125"
+        app:layout_constraintTop_toBottomOf="@+id/save_button"
+        app:layout_constraintVertical_bias="0.213"
         tools:ignore="TextContrastCheck" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
