@@ -57,7 +57,16 @@ public class ImportQr extends AppCompatActivity {
             public void onClick(View view) {
                 //Decode from Image to Qr
                 String result = scanQRImage(bmp);
-                Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                if (result.length() > 0){
+                    Intent intent = new Intent(ImportQr.this, RetrievedText.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("result", result);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "No result found", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

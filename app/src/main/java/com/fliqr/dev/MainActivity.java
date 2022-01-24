@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -45,7 +46,11 @@ public class MainActivity extends AppCompatActivity {
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
         if (intentResult.getContents() != null){
-            Toast.makeText(getApplicationContext(), intentResult.getContents(), Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, RetrievedText.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("result", intentResult.getContents());
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
         else {
             Toast.makeText(getApplicationContext(), "No result found", Toast.LENGTH_SHORT).show();
