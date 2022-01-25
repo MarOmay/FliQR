@@ -99,7 +99,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.408"
-        app:srcCompat="@drawable/docx_big" />
+        app:srcCompat="@drawable/empty_file" />
 
     <TextView
         android:id="@+id/file_name"
@@ -108,7 +108,7 @@
         android:layout_marginTop="32dp"
         android:fontFamily="sans-serif"
         android:inputType="text|textMultiLine"
-        android:text="File_name.xxx"
+        android:text="Please choose a file"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
