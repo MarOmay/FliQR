@@ -97,4 +97,15 @@
         app:layout_constraintVertical_bias="0.195"
         tools:ignore="TextContrastCheck" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="64dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fin_name" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
