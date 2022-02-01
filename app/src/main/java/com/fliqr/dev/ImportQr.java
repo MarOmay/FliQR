@@ -65,7 +65,14 @@ public class ImportQr extends AppCompatActivity {
                         intent = new Intent(ImportQr.this, AnswerForm.class);
                     }
                     else if(result.contains("%&SUBMIT&%") && result.contains("%&ANSWER&%")){
-                        Toast.makeText(getApplicationContext(), "Under Maintenance", Toast.LENGTH_SHORT).show();
+
+                        boolean success = new Converter().addRecord(result, ImportQr.this);
+                        if (success){
+                            Toast.makeText(getApplicationContext(), "Record added", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Not added", Toast.LENGTH_SHORT).show();
+                        }
                     }
                     else {
                         intent = new Intent(ImportQr.this, RetrievedText.class);

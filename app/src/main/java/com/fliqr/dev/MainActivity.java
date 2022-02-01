@@ -48,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, AnswerForm.class);
             }
             else if(intentResult.getContents().contains("%&SUBMIT&%") && intentResult.getContents().contains("%&ANSWER&%")){
-                Toast.makeText(getApplicationContext(), "Under Maintenance", Toast.LENGTH_SHORT).show();
+
+                boolean success = new Converter().addRecord(intentResult.getContents(), MainActivity.this);
+                if (success){
+                    Toast.makeText(getApplicationContext(), "Record added", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Not added", Toast.LENGTH_SHORT).show();
+                }
             }
             else {
                 intent = new Intent(MainActivity.this, RetrievedText.class);

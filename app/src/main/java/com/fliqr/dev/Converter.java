@@ -6,11 +6,26 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.os.Environment;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.FormulaEvaluator;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
@@ -51,18 +66,85 @@ public class Converter {
         return null;
     }
 
+    public boolean addRecord(String submitData, Activity activity){
 
-    //From any bitmap passed as parameter
-    public String toText(){
+        String targetForm = submitData.split("%&SUBMIT&%")[0];
+        String[] entries = submitData.split("%&SUBMIT&%")[1].split("%&ANSWER&%");
 
-    /*
-    This is for the live camera preview for RQ detection xml layout
+        try {
+            File storageDir = new File(Environment
+                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/");
+            FileInputStream fileInputStream = new FileInputStream(new File(storageDir,targetForm + ".xlsx"));
+
+            Workbook workbook = new HSSFWorkbook(fileInputStream);
+
+            Sheet spreadsheet = workbook.getSheetAt(0);
+
+            Row row;
+
+            Map<String, Object []> formData = new TreeMap<String, Object[]>();
 
 
-    */
+            FormulaEvaluator formulaEvaluator = workbook.getCreationHelper().createFormulaEvaluator();
+            int ctrRow = 1;
+            for(Row row2: spreadsheet) {
+
+                String[] tempData = new String[99];
+                int tempCtr = 0;
+
+                for(Cell cell: row2) {
+                    tempData[tempCtr] = cell.getStringCellValue();
+                    tempCtr++;
+                }
+
+                formData.put(ctrRow+"",tempData);
+                ctrRow++;
+            }
+
+            formData.put(ctrRow+"", entries);
+
+            Set<String> keyid = formData.keySet();
+
+            int rowid = 0;
+
+            for (String key : keyid){
+                row = spreadsheet.createRow(rowid++);
+                Object[] objArr = formData.get(key);
+                int cellid = 0;
+
+                for (Object obj : objArr) {
+                    Cell cell = row.createCell(cellid++);
+                    cell.setCellValue((String)obj);
+                }
+            }
+
+            fileInputStream.close();
+
+            FileOutputStream out = null;
+            try {
+                out = new FileOutputStream(new File(storageDir, targetForm + ".xlsx"));
+                workbook.write(out);
+                Toast.makeText(activity.getApplicationContext(), "Form Updated!", Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                Toast.makeText(activity.getApplicationContext(), "Error in writing workbook", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            finally {
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    Toast.makeText(activity.getApplicationContext(), "Error in creating workbook", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            }
 
 
-        return "";
+        }
+        catch (Exception e){
+            return false;
+        }
+
+        return true;
     }
 
 
