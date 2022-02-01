@@ -1,12 +1,34 @@
 package com.fliqr.dev;
 
+import java.io.File;
+
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.InputType;
 import android.view.View;
 import android.view.ViewManager;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -147,10 +169,71 @@ public class CreateForm extends AppCompatActivity {
                     LinearLayout tempLL = (LinearLayout) linearLayout.getChildAt(ctr);
                     TextView tempTV = (TextView) tempLL.getChildAt(0);
                     text = text + tempTV.getText().toString() + "%&ENTRY&%";
+                    entries[ctr] = tempTV.getText().toString();
                     ctr++;
                 }
 
-                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                Workbook workbook = new HSSFWorkbook();
+
+                Sheet spreadsheet = workbook.createSheet("Sheet 1");
+
+                Row row;
+
+                Map<String, Object []> formData = new TreeMap<String, Object[]>();
+
+                formData.put("1", entries);
+
+                Set<String> keyid = formData.keySet();
+
+                int rowid = 0;
+
+                for (String key : keyid){
+                    row = spreadsheet.createRow(rowid++);
+                    Object[] objArr = formData.get(key);
+                    int cellid = 0;
+
+                    for (Object obj : objArr) {
+                        Cell cell = row.createCell(cellid++);
+                        cell.setCellValue((String)obj);
+                    }
+                }
+
+                try{
+
+                    File storageDir = new File(Environment
+                            .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/");
+                    if (!storageDir.exists())
+                        storageDir.mkdirs();
+
+                    ContextWrapper cw = new ContextWrapper(getApplicationContext());
+                    File file = new File(storageDir, formName + ".xlsx");
+
+                    FileOutputStream out = null;
+                    try {
+                        out = new FileOutputStream(file);
+                        workbook.write(out);
+                        Toast.makeText(getApplicationContext(), "Form Created!", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        Toast.makeText(getApplicationContext(), "Error in writing workbook", Toast.LENGTH_SHORT).show();
+                    }
+                    finally {
+                        try {
+                            out.close();
+                        } catch (IOException e) {
+                            Toast.makeText(getApplicationContext(), "Error in creating workbook", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                }
+                catch (Exception e){
+                    Toast.makeText(getApplicationContext(), "Can't create workbook", Toast.LENGTH_SHORT).show();
+                }
+
+                WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+                Intent intent = new Converter().displayResult(text, windowManager, CreateForm.this);
+                if (intent != null){
+                    CreateForm.this.startActivity(intent);
+                }
             }
         });
 
