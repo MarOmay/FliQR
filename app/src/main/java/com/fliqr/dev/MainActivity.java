@@ -1,5 +1,6 @@
 package com.fliqr.dev;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +11,6 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
-
-import org.jetbrains.annotations.Nullable;
 
 public class MainActivity extends AppCompatActivity {
 

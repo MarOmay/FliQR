@@ -39,28 +39,9 @@ public class Text extends AppCompatActivity {
                 }
                 else {
                     WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-                    Display display = windowManager.getDefaultDisplay();
-                    Point point = new Point();
-                    display.getSize(point);
-                    int width = point.x;
-                    int height = point.y;
-                    int dimen = width < height ? width : height;
-                    QRGEncoder qrgEncoder = new QRGEncoder(text.getText().toString(),null, QRGContents.Type.TEXT, dimen);
-
-                    try {
-                        Bitmap bitmap = qrgEncoder.encodeAsBitmap();
-
-                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                        byte[] byteArray = stream.toByteArray();
-
-                        Intent intent =  new Intent(Text.this, Output.class);
-                        intent.putExtra("BitmapQR", byteArray);
-
+                    Intent intent = new Converter().displayResult(text.getText().toString(), windowManager, Text.this);
+                    if (intent != null){
                         Text.this.startActivity(intent);
-                    }
-                    catch (Exception e){
-                        Toast.makeText(getApplicationContext(), "Can't generate QR", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

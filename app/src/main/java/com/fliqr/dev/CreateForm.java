@@ -10,6 +10,7 @@ import android.view.ViewManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateForm extends AppCompatActivity {
 
+    private ScrollView scrollView;
     private LinearLayout linearLayout;
     private Button addEntry, generate;
 
@@ -71,6 +73,7 @@ public class CreateForm extends AppCompatActivity {
         formNameAD.create().show();
         formNameET.requestFocus();
 
+        scrollView = findViewById(R.id.scrollView);
         linearLayout = findViewById(R.id.outer);
         addEntry = findViewById(R.id.add_entry);
         generate = findViewById(R.id.generate_button);
@@ -114,6 +117,35 @@ public class CreateForm extends AppCompatActivity {
 
                 entryBuilder.create().show();
 
+            }
+        });
+
+        generate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = formName + "%&HEAD&%";
+
+                Toast.makeText(getApplicationContext(), "Phase 1", Toast.LENGTH_SHORT).show();
+
+                int size = scrollView.getChildCount();
+
+                Toast.makeText(getApplicationContext(), "Child: " + size, Toast.LENGTH_SHORT).show();
+
+                if (size < 1){
+                    Toast.makeText(getApplicationContext(), "Form is empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int ctr = 0;
+                while (size > ctr){
+                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+                    LinearLayout tempLL = (LinearLayout) scrollView.getChildAt(0);
+                    TextView tempTV = (TextView) tempLL.getChildAt(0);
+                    text = text + tempTV.getText().toString() + "%&HEAD&%";
+                    ctr++;
+                }
+
+                Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
             }
         });
 
