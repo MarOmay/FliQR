@@ -59,7 +59,7 @@ public class Output extends AppCompatActivity {
                     FileOutputStream fos = null;
                     try {
                         fos = new FileOutputStream(file);
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, 80, fos);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 50, fos);
                         Toast.makeText(getApplicationContext(), "Image saved", Toast.LENGTH_SHORT).show();
                         fos.flush();
                     } catch (Exception e) {

@@ -53,9 +53,35 @@ public class AnswerForm extends AppCompatActivity {
             linearLayout.addView(childLL);
         }
 
-        LinearLayout childLL = addLL();
-        //childLL.addView(entryTextView);
-        //linearLayout.addView(childLL);
+        generate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String text = head + "%&SUBMIT&%";
+
+                int size = linearLayout.getChildCount();
+
+                if (size < 1){
+                    Toast.makeText(getApplicationContext(), "Form is empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int ctr = 0;
+                while (size > ctr){
+                    LinearLayout tempLL = (LinearLayout) linearLayout.getChildAt(ctr);
+                    EditText tempET = (EditText) tempLL.getChildAt(1);
+                    text = text + tempET.getText().toString() + "%&ANSWER&%";
+                    ctr++;
+                }
+
+                WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
+                Intent intent = new Converter().displayResult(text, windowManager, AnswerForm.this);
+                if (intent != null) {
+                    AnswerForm.this.startActivity(intent);
+                }
+
+            }
+        });
+
     }
 
     private LinearLayout addLL(){

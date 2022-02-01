@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             if(intentResult.getContents().contains("%&FORM&%") && intentResult.getContents().contains("%&ENTRY&%")){
                 intent = new Intent(MainActivity.this, AnswerForm.class);
             }
+            else if(intentResult.getContents().contains("%&SUBMIT&%") && intentResult.getContents().contains("%&ANSWER&%")){
+                Toast.makeText(getApplicationContext(), "Under Maintenance", Toast.LENGTH_SHORT).show();
+            }
             else {
                 intent = new Intent(MainActivity.this, RetrievedText.class);
             }
