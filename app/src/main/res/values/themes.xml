@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.FliQR" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#594838</item>
+        <item name="colorPrimaryVariant">#866355</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,7 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >#736859</item>
         <item name="fontFamily">@font/condensed_reg</item>
-        <item name="colorAccent">@color/black</item>
+        <item name="colorAccent">@color/white</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

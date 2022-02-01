@@ -37,36 +37,36 @@
 
     <ImageView
         android:id="@+id/textIconBig"
-        android:layout_width="252dp"
-        android:layout_height="173dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="122dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="88dp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/text_big" />
+        app:srcCompat="@drawable/text_hd" />
 
     <EditText
         android:id="@+id/editText"
-        android:inputType="textCapSentences|textMultiLine"
-        android:scrollHorizontally="false"
-        android:maxLength ="2000"
-        android:layout_width="360dp"
-        android:layout_height="205dp"
+        android:layout_width="352dp"
+        android:layout_height="283dp"
         android:background="#514C4B"
         android:clickable="true"
-        android:hint="Type here..."
-        android:textColorHint="@color/white"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:gravity="top"
+        android:hint="Type here..."
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="2000"
         android:paddingStart="5dp"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
         android:paddingEnd="5dp"
         android:paddingRight="5dp"
         android:paddingBottom="5dp"
+        android:scrollHorizontally="false"
         android:singleLine="false"
         android:textColor="#FFFFFF"
+        android:textColorHint="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +94,7 @@
         app:layout_constraintHorizontal_bias="0.426"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.195"
+        app:layout_constraintVertical_bias="0.434"
         tools:ignore="TextContrastCheck" />
 
     <ImageView

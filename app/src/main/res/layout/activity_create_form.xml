@@ -79,56 +79,57 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/textDocxBig"
-        android:layout_width="252dp"
-        android:layout_height="173dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="122dp"
+        android:layout_height="103dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/forms_big" />
+        app:srcCompat="@drawable/cform_hd" />
 
     <TextView
         android:id="@+id/file_name"
         android:layout_width="225dp"
-        android:layout_height="33dp"
+        android:layout_height="35dp"
         android:fontFamily="sans-serif-medium"
         android:inputType="text|textMultiLine"
         android:text="Please choose a file"
         android:textAlignment="textStart"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967"
+        app:layout_constraintVertical_bias="0.294"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/counter"
-        android:layout_width="137dp"
-        android:layout_height="31dp"
+        android:layout_width="129dp"
+        android:layout_height="21dp"
         android:fontFamily="sans-serif-medium"
         android:inputType="text|textMultiLine"
         android:text="0/99"
         android:textAlignment="textEnd"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.967"
+        app:layout_constraintVertical_bias="0.308"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="363dp"
-        android:layout_height="236dp"
+        android:layout_width="355dp"
+        android:layout_height="329dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="40dp"
@@ -136,9 +137,10 @@
         android:paddingBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615"
+        app:layout_constraintVertical_bias="0.566"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
