@@ -155,7 +155,7 @@ public class CreateForm extends AppCompatActivity {
         generate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String text = formName + "%&HEAD&%";
+                String text = formName + "%&FORM&%";
 
                 int size = linearLayout.getChildCount();
 

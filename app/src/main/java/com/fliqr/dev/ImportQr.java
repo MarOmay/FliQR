@@ -58,7 +58,16 @@ public class ImportQr extends AppCompatActivity {
                 //Decode from Image to Qr
                 String result = scanQRImage(bmp);
                 if (result.length() > 0){
-                    Intent intent = new Intent(ImportQr.this, RetrievedText.class);
+
+                    Intent intent = null;
+
+                    if(result.contains("%&FORM&%") && result.contains("%&ENTRY&%")){
+                        intent = new Intent(ImportQr.this, AnswerForm.class);
+                    }
+                    else {
+                        intent = new Intent(ImportQr.this, RetrievedText.class);
+                    }
+
                     Bundle bundle = new Bundle();
                     bundle.putString("result", result);
                     intent.putExtras(bundle);

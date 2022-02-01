@@ -41,7 +41,16 @@ public class MainActivity extends AppCompatActivity {
         IntentResult intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
         if (intentResult.getContents() != null){
-            Intent intent = new Intent(MainActivity.this, RetrievedText.class);
+
+            Intent intent = null;
+
+            if(intentResult.getContents().contains("%&FORM&%") && intentResult.getContents().contains("%&ENTRY&%")){
+                intent = new Intent(MainActivity.this, AnswerForm.class);
+            }
+            else {
+                intent = new Intent(MainActivity.this, RetrievedText.class);
+            }
+
             Bundle bundle = new Bundle();
             bundle.putString("result", intentResult.getContents());
             intent.putExtras(bundle);

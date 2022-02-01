@@ -47,6 +47,10 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".AnswerForm"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".Output"
             android:exported="true"
             android:screenOrientation="portrait" />
