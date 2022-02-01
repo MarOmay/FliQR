@@ -3,7 +3,6 @@ package com.fliqr.dev;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -14,7 +13,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,10 +21,55 @@ public class CreateForm extends AppCompatActivity {
     private LinearLayout linearLayout;
     private Button addEntry, generate;
 
+    private String formName;
+    private String[] entries = new String[99];
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_form);
+
+        AlertDialog.Builder formNameAD = new AlertDialog.Builder(CreateForm.this);
+        formNameAD.setTitle("Form Name");
+
+        EditText formNameET = new EditText(getApplicationContext());
+        formNameET.setInputType(InputType.TYPE_CLASS_TEXT);
+
+        formNameAD.setView(formNameET);
+
+        formNameAD.setPositiveButton("CREATE", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String temp = formNameET.getText().toString();
+                if (temp.length() < 1 || temp.equals(" ") ){
+                    Toast.makeText(getApplicationContext(), "Invalid Form Name", Toast.LENGTH_SHORT).show();
+                }
+                else if (temp.startsWith(" ") || temp.endsWith(" ")){
+                    Toast.makeText(getApplicationContext(), "Form Name can't start/end with space", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    formName = temp;
+                }
+            }
+        });
+
+        formNameAD.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                onBackPressed();
+            }
+        });
+
+        formNameAD.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                onBackPressed();
+                Toast.makeText(getApplicationContext(), "Form Name is required", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        formNameAD.create().show();
+        formNameET.requestFocus();
 
         linearLayout = findViewById(R.id.outer);
         addEntry = findViewById(R.id.add_entry);
@@ -119,7 +162,8 @@ public class CreateForm extends AppCompatActivity {
                 builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        ((ViewManager)textView.getParent()).removeView(textView);
+                        //removes not only the textView, but also the LinearLayout container
+                        ((ViewManager)textView.getParent().getParent()).removeView((LinearLayout) textView.getParent());
                     }
                 });
 
@@ -169,7 +213,13 @@ public class CreateForm extends AppCompatActivity {
     }
 
     public void back(View view){
-        finish();
+        onBackPressed();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 
 }
