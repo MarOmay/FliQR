@@ -22,6 +22,7 @@ public class CreateForm extends AppCompatActivity {
     private ScrollView scrollView;
     private LinearLayout linearLayout;
     private Button addEntry, generate;
+    private TextView title, counter;
 
     private String formName;
     private String[] entries = new String[99];
@@ -51,6 +52,7 @@ public class CreateForm extends AppCompatActivity {
                 }
                 else{
                     formName = temp;
+                    title.setText(formName);
                 }
             }
         });
@@ -75,6 +77,8 @@ public class CreateForm extends AppCompatActivity {
 
         scrollView = findViewById(R.id.scrollView);
         linearLayout = findViewById(R.id.outer);
+        title = findViewById(R.id.file_name);
+        counter = findViewById(R.id.counter);
         addEntry = findViewById(R.id.add_entry);
         generate = findViewById(R.id.generate_button);
 
@@ -103,7 +107,10 @@ public class CreateForm extends AppCompatActivity {
                             LinearLayout childLL = addLL();
                             childLL.addView(entryTextView);
                             linearLayout.addView(childLL);
+
                         }
+
+                        counter.setText(linearLayout.getChildCount() + "/99");
 
                     }
                 });
@@ -111,6 +118,9 @@ public class CreateForm extends AppCompatActivity {
                 entryBuilder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
+
+                        counter.setText(linearLayout.getChildCount() + "/99");
+
                         return;
                     }
                 });
@@ -125,11 +135,7 @@ public class CreateForm extends AppCompatActivity {
             public void onClick(View view) {
                 String text = formName + "%&HEAD&%";
 
-                Toast.makeText(getApplicationContext(), "Phase 1", Toast.LENGTH_SHORT).show();
-
-                int size = scrollView.getChildCount();
-
-                Toast.makeText(getApplicationContext(), "Child: " + size, Toast.LENGTH_SHORT).show();
+                int size = linearLayout.getChildCount();
 
                 if (size < 1){
                     Toast.makeText(getApplicationContext(), "Form is empty", Toast.LENGTH_SHORT).show();
@@ -138,10 +144,9 @@ public class CreateForm extends AppCompatActivity {
 
                 int ctr = 0;
                 while (size > ctr){
-                    Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
-                    LinearLayout tempLL = (LinearLayout) scrollView.getChildAt(0);
+                    LinearLayout tempLL = (LinearLayout) linearLayout.getChildAt(ctr);
                     TextView tempTV = (TextView) tempLL.getChildAt(0);
-                    text = text + tempTV.getText().toString() + "%&HEAD&%";
+                    text = text + tempTV.getText().toString() + "%&ENTRY&%";
                     ctr++;
                 }
 
@@ -196,6 +201,7 @@ public class CreateForm extends AppCompatActivity {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         //removes not only the textView, but also the LinearLayout container
                         ((ViewManager)textView.getParent().getParent()).removeView((LinearLayout) textView.getParent());
+                        counter.setText(linearLayout.getChildCount() + "/99");
                     }
                 });
 
@@ -240,6 +246,8 @@ public class CreateForm extends AppCompatActivity {
 
             }
         });
+
+        counter.setText(linearLayout.getChildCount() + "/99");
 
         return textView;
     }
