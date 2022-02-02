@@ -3,6 +3,7 @@ package com.fliqr.dev;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -51,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
 
                 boolean success = new Converter().addRecord(intentResult.getContents(), MainActivity.this);
                 if (success){
-                    Toast.makeText(getApplicationContext(), "Record added", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this, Submitted.class);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Not added", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Record not added", Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this, MainActivity.class);
                 }
             }
             else {
@@ -82,8 +84,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoDocxQr(View view){
-        Intent intent = new Intent(MainActivity.this, DocxQr.class);
-        MainActivity.this.startActivity(intent);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        //Uri mydir = Uri.parse("file://"+location);
+        //intent.setDataAndType(mydir,"application/*");    // or use */*
+        startActivity(intent);
     }
 
     public void gotoImportQr(View view){

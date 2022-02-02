@@ -68,10 +68,11 @@ public class ImportQr extends AppCompatActivity {
 
                         boolean success = new Converter().addRecord(result, ImportQr.this);
                         if (success){
-                            Toast.makeText(getApplicationContext(), "Record added", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(ImportQr.this, Submitted.class);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Not added", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Record not added", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(ImportQr.this, MainActivity.class);
                         }
                     }
                     else {
