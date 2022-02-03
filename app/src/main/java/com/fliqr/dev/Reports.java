@@ -35,6 +35,7 @@ public class Reports extends AppCompatActivity {
             File storageDir = new File(Environment
                     .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/");
 
+            int ctr= 0;
             for (File file : storageDir.listFiles()){
                 if(!file.isDirectory() && file.getAbsolutePath().endsWith(".xlsx")){
                     String[] temp = file.getAbsolutePath().split("/");
@@ -43,7 +44,13 @@ public class Reports extends AppCompatActivity {
                     LinearLayout childLL = addLL();
                     childLL.addView(addTV(temp[temp.length - 1], path));
                     linearLayout.addView(childLL);
+
+                    ctr++;
                 }
+            }
+
+            if (ctr == 0){
+                Toast.makeText(getApplicationContext(), "No records yet", Toast.LENGTH_LONG).show();
             }
         }
         catch (Exception e){
