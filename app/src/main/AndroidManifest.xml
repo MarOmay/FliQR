@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FliQR">
         <activity
+            android:name=".ErrorSubmission"
+            android:exported="true" />
+        <activity
             android:name=".Submitted"
             android:exported="true" />
         <activity
