@@ -15,7 +15,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.io.File;
-
+//jireh
 public class MainActivity extends AppCompatActivity {
 
     @Override
