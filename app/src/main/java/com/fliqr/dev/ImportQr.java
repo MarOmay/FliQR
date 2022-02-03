@@ -71,8 +71,7 @@ public class ImportQr extends AppCompatActivity {
                             intent = new Intent(ImportQr.this, Submitted.class);
                         }
                         else {
-                            Toast.makeText(getApplicationContext(), "Record not added", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(ImportQr.this, MainActivity.class);
+                            intent = new Intent(ImportQr.this, ErrorSubmission.class);
                         }
                     }
                     else {

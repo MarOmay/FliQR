@@ -58,8 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(MainActivity.this, Submitted.class);
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "Record not added", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(MainActivity.this, MainActivity.class);
+                    intent = new Intent(MainActivity.this, ErrorSubmission.class);
                 }
             }
             else {
