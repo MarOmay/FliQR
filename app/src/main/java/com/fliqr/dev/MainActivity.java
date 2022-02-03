@@ -105,5 +105,8 @@ public class MainActivity extends AppCompatActivity {
         this.finish();
     }
 
+    private void Jireh(){
+        System.out.print("pogi");
+    }
 
 }
