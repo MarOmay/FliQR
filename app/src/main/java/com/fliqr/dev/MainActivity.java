@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,10 +87,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoDocxQr(View view){
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        //Uri mydir = Uri.parse("file://"+location);
-        //intent.setDataAndType(mydir,"application/*");    // or use */*
-        startActivity(intent);
+        Intent intent = new Intent(MainActivity.this, Reports.class);
+        MainActivity.this.startActivity(intent);
     }
 
     public void gotoImportQr(View view){
