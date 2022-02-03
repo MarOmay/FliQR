@@ -41,7 +41,7 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".DocxQr"
+            android:name=".Reports"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity

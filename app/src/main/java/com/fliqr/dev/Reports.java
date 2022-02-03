@@ -8,18 +8,12 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.provider.OpenableColumns;
-import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,17 +21,9 @@ import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.net.URI;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.attribute.BasicFileAttributeView;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.zip.DeflaterOutputStream;
 
-public class DocxQr extends AppCompatActivity {
+public class Reports extends AppCompatActivity {
 
     private static final int REQUEST_CODE_OPEN = 1;
 
@@ -48,7 +34,7 @@ public class DocxQr extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_docx_qr);
+        setContentView(R.layout.activity_reports);
 
         imageView = findViewById(R.id.filetype_icon);
         text = findViewById(R.id.file_name);
@@ -171,8 +157,8 @@ public class DocxQr extends AppCompatActivity {
     }
 
     public void gotoOutput(View view){
-        Intent intent = new Intent(DocxQr.this, Output.class);
-        DocxQr.this.startActivity(intent);
-        DocxQr.this.finish();
+        Intent intent = new Intent(Reports.this, Output.class);
+        Reports.this.startActivity(intent);
+        Reports.this.finish();
     }
 }
