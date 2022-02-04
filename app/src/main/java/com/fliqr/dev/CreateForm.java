@@ -227,6 +227,7 @@ public class CreateForm extends AppCompatActivity {
                 }
                 catch (Exception e){
                     Toast.makeText(getApplicationContext(), "Can't create workbook", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please check app permissions", Toast.LENGTH_SHORT).show();
                 }
 
                 WindowManager windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
