@@ -1,7 +1,5 @@
 package com.fliqr.dev;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -124,7 +122,6 @@ public class Converter {
             try {
                 out = new FileOutputStream(new File(storageDir, targetForm + ".xlsx"));
                 workbook.write(out);
-                //Toast.makeText(activity.getApplicationContext(), "Form Updated!", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 Toast.makeText(activity.getApplicationContext(), "Error in writing workbook", Toast.LENGTH_SHORT).show();
                 return false;
