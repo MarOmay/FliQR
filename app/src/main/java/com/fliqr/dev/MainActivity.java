@@ -15,7 +15,7 @@ import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import java.io.File;
-
+//jireh
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -105,5 +105,8 @@ public class MainActivity extends AppCompatActivity {
         this.finish();
     }
 
+    private void Jireh(){
+        System.out.print("pogi");
+    }
 
 }
