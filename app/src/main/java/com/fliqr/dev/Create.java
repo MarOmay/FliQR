@@ -26,18 +26,8 @@ public class Create extends AppCompatActivity {
         Create.this.finish();
     }
 
-    public void gotoDocxQr(View view){
+    public void gotoDocxQr(View view){ //CREATE FORM
         Intent intent = new Intent(Create.this, CreateForm.class);
-        Create.this.startActivity(intent);
-    }
-
-    public void gotoPdfQr(View view){
-        Intent intent = new Intent(Create.this, PdfQr.class);
-        Create.this.startActivity(intent);
-    }
-
-    public void gotoExcel(View view){
-        Intent intent = new Intent(Create.this, ExcelQr.class);
         Create.this.startActivity(intent);
     }
 
