@@ -35,6 +35,9 @@ public class Reports extends AppCompatActivity {
             File storageDir = new File(Environment
                     .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/");
 
+            if (!storageDir.exists())
+                storageDir.mkdirs();
+
             int ctr= 0;
             for (File file : storageDir.listFiles()){
                 if(!file.isDirectory() && file.getAbsolutePath().endsWith(".xlsx")){
@@ -55,6 +58,7 @@ public class Reports extends AppCompatActivity {
         }
         catch (Exception e){
             Toast.makeText(getApplicationContext(), "Can't generate reports", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please check app permissions", Toast.LENGTH_SHORT).show();
         }
 
 
