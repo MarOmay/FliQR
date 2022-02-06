@@ -36,8 +36,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/docx_button"
-        android:layout_width="364dp"
-        android:layout_height="169dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#d29381"
         android:foreground="@drawable/btn_forms_long"
         android:gravity="right|center"
@@ -47,8 +47,9 @@
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:typeface="sans"
+        app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline7"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/text_button"
@@ -57,8 +58,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/text_button"
-        android:layout_width="364dp"
-        android:layout_height="169dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#E2C1C0"
         android:clickable="true"
         android:foreground="@drawable/btn_create_long"
@@ -69,8 +70,9 @@
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:typeface="sans"
+        app:layout_constraintDimensionRatio="2:1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideline7"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
@@ -126,6 +128,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.93"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
