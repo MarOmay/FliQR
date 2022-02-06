@@ -25,7 +25,7 @@
         android:id="@+id/textView2"
         android:layout_width="162dp"
         android:layout_height="90dp"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="104dp"
         android:text="Reports"
         android:textAllCaps="false"
@@ -37,12 +37,12 @@
 
     <ImageView
         android:id="@+id/textDocxBig"
-        android:layout_width="122dp"
-        android:layout_height="103dp"
+        android:layout_width="101dp"
+        android:layout_height="117dp"
         android:layout_marginStart="88dp"
         android:layout_marginTop="88dp"
         app:layout_constraintEnd_toEndOf="@id/guideline6"
-        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintHorizontal_bias="0.409"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/reports_hd" />
