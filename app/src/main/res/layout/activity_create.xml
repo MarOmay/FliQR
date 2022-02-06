@@ -12,12 +12,11 @@
         android:id="@+id/backButton"
         android:layout_width="39dp"
         android:layout_height="38dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="#00C1C1C1"
         android:onClick="back"
         android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_button"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -32,7 +31,7 @@
         android:text="Create"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -43,14 +42,15 @@
         android:foreground="@drawable/btn_forms_long"
         android:gravity="right|center"
         android:onClick="gotoDocxQr"
-        android:text="FORMS"
         android:paddingEnd="80sp"
+        android:text="FORMS"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/text_button"
         app:layout_constraintVertical_bias="0.176"
         tools:ignore="TextContrastCheck" />
@@ -71,7 +71,8 @@
         android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
 
@@ -86,7 +87,7 @@
         android:textColor="#FFFFFF"
         android:textSize="70dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <ImageView
@@ -94,7 +95,9 @@
         android:layout_width="184dp"
         android:layout_height="111dp"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline6"
+        app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/create_hd" />
@@ -104,11 +107,25 @@
         android:layout_width="64dp"
         android:layout_height="21dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintEnd_toEndOf="@id/guideline6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fin_name" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

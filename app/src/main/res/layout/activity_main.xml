@@ -29,7 +29,7 @@
         android:clickable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/fin_icon"/>
+        app:srcCompat="@drawable/fin_icon" />
 
     <ImageView
         android:id="@+id/name"
@@ -44,9 +44,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/create_button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="280dp"
         android:background="#E2C1C0"
         android:clickable="true"
         android:foreground="@drawable/btn_create"
@@ -58,19 +58,18 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/scanqr_button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginEnd="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="280dp"
         android:background="#d29381"
         android:foreground="@drawable/btn_scan"
         android:gravity="bottom|center"
@@ -81,20 +80,18 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/create_button"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/importqr_button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
         android:background="#E2C1C0"
         android:foreground="@drawable/btn_import"
         android:gravity="bottom|center"
@@ -106,19 +103,17 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline4"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/importdoc_button"
+        app:layout_constraintStart_toStartOf="@id/guideline3"
         app:layout_constraintTop_toBottomOf="@+id/scanqr_button"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TextContrastCheck" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/importdoc_button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="28dp"
         android:background="#d29381"
         android:foreground="@drawable/btn_reports"
@@ -130,12 +125,39 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:typeface="sans"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/create_button"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TextContrastCheck" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.47" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.06" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.53" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

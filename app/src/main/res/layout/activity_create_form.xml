@@ -12,12 +12,11 @@
         android:id="@+id/backButton"
         android:layout_width="39dp"
         android:layout_height="38dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:background="#00C1C1C1"
         android:onClick="back"
         android:scaleType="centerInside"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back_button"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -76,7 +75,7 @@
         android:textColor="#FFFFFF"
         android:textSize="50dp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -86,6 +85,7 @@
         android:layout_height="103dp"
         android:layout_marginStart="92dp"
         android:layout_marginTop="76dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline6"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cform_hd" />
@@ -104,14 +104,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.294"
+        app:layout_constraintTop_toTopOf="@id/guideline7"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
         android:id="@+id/counter"
         android:layout_width="129dp"
         android:layout_height="21dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-medium"
         android:inputType="text|textMultiLine"
         android:text="0/99"
@@ -122,8 +123,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.875"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.308"
+        app:layout_constraintTop_toTopOf="@id/guideline7"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TouchTargetSizeCheck" />
 
     <ScrollView
@@ -139,8 +140,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.566"
+        app:layout_constraintTop_toTopOf="@id/guideline8"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -156,11 +157,39 @@
         android:layout_width="64dp"
         android:layout_height="21dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintEnd_toEndOf="@id/guideline6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fin_name" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.93" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
