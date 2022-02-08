@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void requestStorage(){
-        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.MANAGE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
             //requestStorage();
             //Toast.makeText(getApplicationContext(),"Storage access is required",Toast.LENGTH_SHORT);
         }

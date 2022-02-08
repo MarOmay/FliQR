@@ -69,6 +69,38 @@ public class Converter {
         String targetForm = submitData.split("%&SUBMIT&%")[0];
         String[] entries = submitData.split("%&SUBMIT&%")[1].split("%&ANSWER&%");
 
+        try{
+            File fileDir = new File(Environment
+                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/" + targetForm + ".xlsx");
+            if(!fileDir.exists()){
+                FileOutputStream out = null;
+                try {
+                    Workbook workbook = new HSSFWorkbook();
+
+                    Sheet spreadsheet = workbook.createSheet("Sheet 1");
+
+                    out = new FileOutputStream(fileDir);
+                    workbook.write(out);
+                    out.close();
+                } catch (Exception e) {
+                    Toast.makeText(activity.getApplicationContext(), "Error in writing workbook", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+                finally {
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        Toast.makeText(activity.getApplicationContext(), "Error in creating workbook", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                }
+
+            }
+        }
+        catch (Exception e){
+
+        }
+
         try {
             File storageDir = new File(Environment
                     .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/");
