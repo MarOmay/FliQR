@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:inputType="text|textMultiLine"
-        android:text="Your response was not recorded."
+        android:text="Your response was not recorded.\nTap HERE to check Permission"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
