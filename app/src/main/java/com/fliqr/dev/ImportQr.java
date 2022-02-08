@@ -155,33 +155,4 @@ public class ImportQr extends AppCompatActivity {
         this.finish();
     }
 
-    /*
-
-    public void requestStorage(){
-        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.MANAGE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-            //requestStorage();
-            //Toast.makeText(getApplicationContext(),"Storage access is required",Toast.LENGTH_SHORT);
-        }
-        else {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.MANAGE_EXTERNAL_STORAGE)){
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.MANAGE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_STORAGE);
-            }
-            else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.MANAGE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_STORAGE);
-            }
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
-        if (requestCode == PERMISSION_REQUEST_STORAGE){
-            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                //Allowed
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "Permission denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
-
 }
