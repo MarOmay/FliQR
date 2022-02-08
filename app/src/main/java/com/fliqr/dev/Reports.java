@@ -1,13 +1,17 @@
 package com.fliqr.dev;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 
+import android.view.ViewManager;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -96,11 +100,69 @@ public class Reports extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Saved: " + path, Toast.LENGTH_LONG).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Reports.this);
+
+                builder.setTitle("Options");
+                builder.setMessage("Delete or locate this entry?");
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+
+                        ///separte
+
+                        AlertDialog.Builder yesNO = new AlertDialog.Builder(Reports.this);
+                        yesNO.setTitle("Delete this file?");
+                        yesNO.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                File file = new File(Environment
+                                        .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/FliQR/" + textView.getText().toString());
+
+                                file.delete();
+
+
+                                //removes not only the textView, but also the LinearLayout container
+                                ((ViewManager)textView.getParent().getParent()).removeView((LinearLayout) textView.getParent());
+                            }
+                        });
+
+                        yesNO.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //No code
+                            }
+                        });
+
+                        yesNO.create().show();
+                    }
+                });
+
+                builder.setNegativeButton("LOCATE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Toast.makeText(getApplicationContext(), "Saved: " + path, Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+                try {
+                    builder.create().show();
+                }
+                catch (Exception e){
+                    Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
+
+
         return textView;
+
     }
 
     public void back(View view){
