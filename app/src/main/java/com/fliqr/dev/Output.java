@@ -1,8 +1,13 @@
 package com.fliqr.dev;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.Manifest;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -20,6 +25,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Output extends AppCompatActivity {
+
+    private final int PERMISSION_REQUEST_STORAGE = 0;
 
     private Bitmap bitmap;
 
@@ -111,6 +118,33 @@ public class Output extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         this.finish();
+    }
+
+    private void requestStorage(){
+        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.MANAGE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+            //requestStorage();
+            //Toast.makeText(getApplicationContext(),"Storage access is required",Toast.LENGTH_SHORT);
+        }
+        else {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_STORAGE);
+            }
+            else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_REQUEST_STORAGE);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults){
+        if (requestCode == PERMISSION_REQUEST_STORAGE){
+            if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                //Allowed
+            }
+            else {
+                Toast.makeText(getApplicationContext(), "Permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
 
