@@ -63,9 +63,11 @@ public class CreateForm extends AppCompatActivity {
                 String temp = formNameET.getText().toString();
                 if (temp.length() < 1 || temp.equals(" ") ){
                     Toast.makeText(getApplicationContext(), "Invalid Form Name", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 }
                 else if (temp.startsWith(" ") || temp.endsWith(" ")){
                     Toast.makeText(getApplicationContext(), "Form Name can't start/end with space", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 }
                 else{
                     formName = temp;
